@@ -1,0 +1,87 @@
+{
+  "name": "github-image-upload",
+  "displayName": "GitHub Image Upload",
+  "description": "Upload images to GitHub repository and get URL",
+  "version": "1.0.0",
+  "publisher": "sxy15",
+  "author": {
+    "name": "sxy15",
+    "email": "sxy_19921115@163.com"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suxinyi/github-image-upload.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:github-image-upload.markdownPasteImage"
+  ],
+  "main": "./out/extension.js",
+  "type": "module",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "markdown paste image configuration",
+      "properties": {
+        "github-image-upload.githubAccessToken": {
+          "type": "string",
+          "description": "GitHub personal access token"
+        },
+        "github-image-upload.githubRepository": {
+          "type": "string",
+          "description": "GitHub repository name"
+        },
+        "github-image-upload.githubAssetFolder": {
+          "type": "string",
+          "default": "",
+          "description": "GitHub repository asset folder"
+        },
+        "github-image-upload.githubUserName": {
+          "type": "string",
+          "default": "",
+          "description": "GitHub user name"
+        },
+        "github-image-upload.githubUserEmail": {
+          "type": "string",
+          "default": "",
+          "description": "GitHub user email"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "github-image-upload.markdownPasteImage",
+        "title": "Upload Image to GitHub",
+        "category": "GitHub Image Upload"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "github-image-upload.markdownPasteImage"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "octokit": "^5.0.5",
+    "vsce": "^2.15.0"
+  }
+}
