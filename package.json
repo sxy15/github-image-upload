@@ -2,7 +2,7 @@
   "name": "github-image-upload",
   "displayName": "GitHub Image Upload",
   "description": "Upload images to GitHub repository and get URL",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "sxy15",
   "author": {
     "name": "sxy15",
@@ -19,7 +19,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:github-image-upload.markdownPasteImage"
+    "onCommand:github-image-upload.markdownUploadImage"
   ],
   "main": "./out/extension.js",
   "type": "module",
@@ -55,7 +55,7 @@
     },
     "commands": [
       {
-        "command": "github-image-upload.markdownPasteImage",
+        "command": "github-image-upload.markdownUploadImage",
         "title": "Upload Image to GitHub",
         "category": "GitHub Image Upload"
       }
@@ -63,7 +63,7 @@
     "menus": {
       "commandPalette": [
         {
-          "command": "github-image-upload.markdownPasteImage"
+          "command": "github-image-upload.markdownUploadImage"
         }
       ]
     }

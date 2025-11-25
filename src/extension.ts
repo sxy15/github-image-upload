@@ -2,10 +2,9 @@ import * as vscode from 'vscode';
 import { GitHubUploader } from './github-uploader.js';
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('GitHub Image Upload extension is now active!');
     
     // 注册上传图片命令
-    const uploadCommand = vscode.commands.registerCommand('github-image-upload.markdownPasteImage', async () => {
+    const uploadCommand = vscode.commands.registerCommand('extension.markdownUploadImage', async () => {
         try {
             // 获取配置
             const config = vscode.workspace.getConfiguration('github-image-upload');
@@ -43,8 +42,9 @@ export function activate(context: vscode.ExtensionContext) {
             
             const imageUrl = await uploader.upload(fileContent) as string;
             
-            // 复制URL到剪贴板
-            await vscode.env.clipboard.writeText(imageUrl);
+            // 复制 markdown 格式图片 到剪贴板
+            const name = imageUrl.split('/').pop() || 'image';
+            await vscode.env.clipboard.writeText(`![${name}](${imageUrl})`);
             vscode.window.showInformationMessage(`图片上传成功! URL已复制到剪贴板: ${imageUrl}`);
             
         } catch (error: any) {
