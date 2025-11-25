@@ -4,7 +4,7 @@ import { GitHubUploader } from './github-uploader.js';
 export function activate(context: vscode.ExtensionContext) {
     
     // 注册上传图片命令
-    const uploadCommand = vscode.commands.registerCommand('extension.markdownUploadImage', async () => {
+    const uploadCommand = vscode.commands.registerCommand('github-image-upload.uploadImage', async () => {
         try {
             // 获取配置
             const config = vscode.workspace.getConfiguration('github-image-upload');
