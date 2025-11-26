@@ -25,7 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
                 canSelectMany: false,
                 openLabel: '选择图片',
                 filters: {
-                    'Images': ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp']
+                    'Images': ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'avif']
                 }
             });
 
